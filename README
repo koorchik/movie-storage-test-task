@@ -3,6 +3,7 @@
  * DBI 1.38 or newer
  * DBD::SQLite
  * Iterator 0.03
+ * Term::UI
 
 === DESCRIPTION ===  
 
