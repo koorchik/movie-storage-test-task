@@ -1,0 +1,34 @@
+=== DEPENDENCIES ===
+ * Perl 5.10 or newer
+ * DBI 1.38 or newer
+ * DBD::SQLite
+ * Iterator 0.03
+
+=== DESCRIPTION ===  
+
+Application is  rather simple and requires only next parts:
+ 1. Movie objects
+ 2. Storage Engine
+ 3. File Parser
+ 4. Command Line Interface
+
+movie_storage.pl - contains only initialization code. It prepares StorageEngine and FileParser instances, 
+passes them to CLI object and runs CLI. 
+So, in case of need we can substitute StorageEngine and FileParser.
+  
+Classes:
+ 1. MovieStorage::Movie - represents movie object data type. (See perldoc)
+ 2. MovieStorage::StorageEngine - abstract class which only describes StorageEngine API (See perldoc)
+  2.1. MovieStorage::StorageEngine::SQLite - StorageEngine implementation using SQLite
+ 3. MovieStorage::FileParser - abstract class which only describes file parser API (See perldoc)
+  3.1 MovieStorage::FileParser::LineBased - parser implementation for provided text file with movies
+ 4. MovieStorage::CLI - command line interface
+ 
+Notes:
+ 1. I do not use collections to simplify application. For listing operation iterator is enough.
+ 2. In real life we should create indexes for SQLite DB
+ 3. Application has very simple structure, so class diagrams are not necessary here. API is described in perldoc.
+ 4. In real-life Iterator.pm can be just replaces with certain callback iterator to avoid extra dependency
+ 5. In MovieStorage::StorageEngine::SQLite we can inject $dbh instead of $db_path but in fact SQLite is a good mock itself
+ 6. Tests cover valid(most general  boundary vlues) values. In real-life app invalid values should be also tested.  
+ 7. In real-life application user interface should be more friendly and fancy.

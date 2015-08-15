@@ -1,0 +1,19 @@
+Makefile.PL
+MANIFEST            This list of files
+README
+bin/movie_storage.pl
+lib/MovieStorage/CLI.pm
+lib/MovieStorage/FileParser.pm  
+lib/MovieStorage/Movie.pm  
+lib/MovieStorage/StorageEngine.pm
+lib/MovieStorage/FileParser/LineBased.pm
+lib/MovieStorage/StorageEngine/SQLite.pm
+t/010-movie_valid_data.t    
+t/030-storageengine-sqlite-add-load.t
+t/040-storageengine-sqlite-list_movies.t
+t/043-storageengine-sqlite-find_movies.t  
+t/045-storageengine-sqlite-delete.t     
+t/050-fileparser-linebased.t
+t/060-cli-minimal.t
+META.yml                                 Module YAML meta-data (added by MakeMaker)
+META.json                                Module JSON meta-data (added by MakeMaker)
