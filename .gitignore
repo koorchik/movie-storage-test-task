@@ -2,3 +2,7 @@ blib
 pm_to_blib
 .project
 local
+MYMETA.json
+MYMETA.yml
+Makefile
+cpanfile.snapshot
